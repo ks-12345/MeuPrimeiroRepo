@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converta a Moeda</title>
+</head>
+<body>
+ 
+</select>
+<input type="number" id="real" placeholder="Digite o valor em Real" min="0">
+<br>
+
+
+<label for="moedas">Escolha a Moeda</label>
+<select id="moedas" name="moedas">
+    <option  value="euro" id="euro()">Euro</option>
+    <option value="dolar">Dólar</option>
+</select>
+<button onclick="converter()">Converter</button><br>
+
+<div id="Moeda"></div>
+<script>
+function converter() {
+    const real = document.getElementById("real").value;
+    const moedas = document.getElementById("moedas").value;
+    let msn;
+    euro = real / 6.46;
+    dolar = real / 5.25;
+   
+
+    switch (moedas) {
+        case "dolar":
+         msn=` O valor em Dólares é: <mark>${dolar.toFixed(2)}</mark>`;
+            break;
+    
+            case "euro":
+         msn=` O valor em Euros é: <mark>${euro.toFixed(2)}</mark>`;
+            break;
+
+        default:
+            msn= "Erro: Moeda inválida!";
+            break;
+    }
+document.getElementById("Moeda").innerHTML = `<strong>${msn}</strong>`;
+}
+    
+
+</script>
+</body>
+</html>

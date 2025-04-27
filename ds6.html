@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Roupa</title>
+</head>
+<body>
+    <h1>LOJA DE ROUPA</h1>
+
+    <p>Vestido
+     <br>Valor: R$150.00
+    </p>
+    <button onclick="adicionarProduto('vestido')">Adicionar Vestido</button>
+    <p>Camisa 
+     <br>Valor: R$100.00
+    </p>
+    <button onclick="adicionarProduto('camisa')">Adicionar Camisa</button>
+    <p>Calça Jeans
+     <br>Valor: R$250.00
+    </p>
+    <button onclick="adicionarProduto('calça')">Adicionar Calça</button>
+   
+    <div id="resultadoProduto"></div>
+
+    <script>
+       
+        let quantidadeVestido = 0;
+        let quantidadeCamisa = 0;
+        let quantidadeCalça = 0;
+
+        
+        function adicionarProduto(produto) {
+            switch (produto) {
+                case 'vestido':
+                    quantidadeVestido++;
+                    break;
+                case 'camisa':
+                    quantidadeCamisa++;
+                    break;
+                case 'calça':
+                    quantidadeCalça++;
+                    break;
+                default:
+                    alert("Produto inválido!");
+                    return;
+            }
+            exibirTotal();
+        }
+
+        
+        function exibirTotal() {
+            const precoVestido = 150.00;
+            const precoCamisa = 100.00;
+            const precoCalça = 250.00;
+
+            const total = (quantidadeVestido * precoVestido) +
+                          (quantidadeCamisa * precoCamisa) +
+                          (quantidadeCalça * precoCalça);
+
+            
+           let desconto= total - (total / 10)
+
+            document.getElementById("resultadoProduto").innerHTML = `
+                <p>Quantidade de Vestidos: ${quantidadeVestido}</p>
+                <p>Quantidade de Camisas: ${quantidadeCamisa}</p>
+                <p>Quantidade de Calças: ${quantidadeCalça}</p>
+                   <p><mark>Parabens! Voce ganhou um desconto de 10% </mark></p>
+                <p><strong>Total: R$${desconto.toFixed(2)}</strong></p>
+            `;
+        }
+    </script>
+</body>
+</html>
